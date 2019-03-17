@@ -1,6 +1,6 @@
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from spotcrew_backend.tokens.models import SpotCrewTokenObtainPairSerializer
+from tokens.models import SpotCrewTokenObtainPairSerializer
 
 
 class SpotCrewTokenObtainPairView(TokenObtainPairView):

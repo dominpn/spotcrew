@@ -1,6 +1,6 @@
 from django.db import models
 
-from spotcrew_backend.venues.models import Venue
+from venues.models import Venue
 
 
 class Image(models.Model):

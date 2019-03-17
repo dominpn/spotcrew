@@ -1,7 +1,7 @@
 from django.db import models
 
-from spotcrew_backend.users.models import User
-from spotcrew_backend.venues.models import Venue
+from users.models import User
+from venues.models import Venue
 
 
 class Event(models.Model):

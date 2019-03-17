@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
 
-from spotcrew_backend.images.models import Image
+from images.models import Image
 
 
 class User(AbstractBaseUser):
