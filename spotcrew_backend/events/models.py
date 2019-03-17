@@ -1,13 +1,13 @@
 from django.db import models
 
-from spotcrew_backend.users.models import Users
-from spotcrew_backend.venues.models import Venues
+from spotcrew_backend.users.models import User
+from spotcrew_backend.venues.models import Venue
 
 
-class Events(models.Model):
+class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
-    venue_id = models.OneToOneField(Venues, models.DO_NOTHING, db_column='venue_id')
-    host_id = models.OneToOneField(Users, models.DO_NOTHING, db_column='user_id')
+    venue_id = models.OneToOneField(Venue, models.DO_NOTHING, db_column='venue_id')
+    host_id = models.OneToOneField(User, models.DO_NOTHING, db_column='user_id')
     name = models.TextField()
     description = models.TextField()
     # TODO trim seconds

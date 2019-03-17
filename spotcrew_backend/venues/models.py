@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Venues(models.Model):
+class Venue(models.Model):
     venue_id = models.AutoField(primary_key=True)
     name = models.TextField()
     description = models.TextField(blank=True, null=True)

@@ -1,9 +1,9 @@
 from django.db import models
 
-from spotcrew_backend.venues.models import Venues
+from spotcrew_backend.venues.models import Venue
 
 
-class Images(models.Model):
+class Image(models.Model):
     image_id = models.AutoField(primary_key=True)
     link = models.TextField()
 
@@ -12,7 +12,7 @@ class Images(models.Model):
         db_table = 'images'
 
 
-class VenueImages(models.Model):
+class VenueImage(models.Model):
     venue_image_id = models.AutoField(primary_key=True)
-    image_id = models.OneToOneField(Images, models.DO_NOTHING, db_column="image_id")
-    venue_id = models.OneToOneField(Venues, models.DO_NOTHING, db_column="venue_id")
+    image_id = models.OneToOneField(Image, models.DO_NOTHING, db_column="image_id")
+    venue_id = models.OneToOneField(Venue, models.DO_NOTHING, db_column="venue_id")

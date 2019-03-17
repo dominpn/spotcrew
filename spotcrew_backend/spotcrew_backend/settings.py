@@ -19,6 +19,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+
+    'events',
+    'images',
+    'tokens',
+    'users',
+    'venues',
 ]
 
 MIDDLEWARE = [
