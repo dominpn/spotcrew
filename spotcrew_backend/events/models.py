@@ -19,3 +19,7 @@ class Event(models.Model):
     class Meta:
         managed = True
         db_table = 'events'
+
+    @property
+    def owner(self):
+        return self.host_id

@@ -25,6 +25,7 @@ class UserListView(mixins.CreateModelMixin, generics.ListAPIView):
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
     serializer_class = UserSerializer
+    # TODO permission_classes = [IsOwnerOrReadOnly]
 
     def get_queryset(self):
         return User.objects.all()

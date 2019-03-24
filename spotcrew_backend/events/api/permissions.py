@@ -8,4 +8,4 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         # TODO admin or owner
-        return obj.owner == request.user
+        return obj.owner == request.user or request.user.type == 'admin'
