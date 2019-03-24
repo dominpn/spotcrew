@@ -5,7 +5,7 @@ from rest_framework_simplejwt import views as jwt_views
 from tokens.views import SpotCrewTokenObtainPairView
 
 urlpatterns = [
-    url(r'^api/token/$', SpotCrewTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    url(r'^api/login/$', SpotCrewTokenObtainPairView.as_view(), name='login'),
     url(r'^api/token/refreshing/$', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
