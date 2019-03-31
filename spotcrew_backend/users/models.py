@@ -7,7 +7,7 @@ from images.models import Image
 
 
 class User(AbstractUser):
-    user_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     email = models.EmailField(unique=True, null=False)
     username = models.CharField(unique=True, null=False, max_length=40)
     date_joined = models.DateTimeField(default=timezone.now, null=True)

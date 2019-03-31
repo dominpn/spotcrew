@@ -9,5 +9,5 @@ class SpotCrewTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-        token['type'] = user.type
+        token['is_superuser'] = user.is_superuser
         return token
