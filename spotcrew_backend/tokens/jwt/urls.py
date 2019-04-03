@@ -2,7 +2,7 @@ from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_simplejwt import views as jwt_views
 
-from tokens.views import SpotCrewTokenObtainPairView
+from tokens.jwt.views import SpotCrewTokenObtainPairView
 
 urlpatterns = [
     url(r'^api/login/$', SpotCrewTokenObtainPairView.as_view(), name='login'),
