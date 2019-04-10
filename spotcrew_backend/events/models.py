@@ -12,7 +12,7 @@ class Event(models.Model):
     sport_id = models.OneToOneField(Sport, models.DO_NOTHING, db_column='sport_id')
 
     name = models.TextField()
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     # TODO trim seconds
     event_start = models.DateTimeField()
     event_stop = models.DateTimeField()
