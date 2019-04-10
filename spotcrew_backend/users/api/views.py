@@ -2,6 +2,7 @@ from rest_framework import generics, mixins
 
 from users.emails import send_email
 from users.models import User
+from users.api.permissions import IsOwnerAdminOrReadOnly
 from users.api.serializers import UserSerializer
 
 
@@ -25,7 +26,7 @@ class UserListView(mixins.CreateModelMixin, generics.ListAPIView):
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
     serializer_class = UserSerializer
-    # TODO permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerAdminOrReadOnly]
 
     def get_queryset(self):
         return User.objects.all()
