@@ -130,6 +130,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
 
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
