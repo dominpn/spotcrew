@@ -21,6 +21,12 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_gis',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'corsheaders',
+    'rest_framework',
     'django_rest_passwordreset',
 
     'events',
@@ -32,6 +38,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,6 +86,7 @@ DATABASES = {
     }
 }
 '''
+
 AUTH_USER_MODEL = "users.User"
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -130,6 +138,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
 
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
