@@ -6,6 +6,7 @@ coreapi==2.3.3
 coreschema==0.0.4
 dataclasses==0.6
 Django==2.1.7
+django-cors-headers==3.0.1
 django-rest-passwordreset==0.9.7
 django-stubs==0.9.0
 djangorestframework==3.9.2

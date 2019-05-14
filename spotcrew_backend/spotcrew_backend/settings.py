@@ -21,12 +21,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_gis',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-    'corsheaders',
-    'rest_framework',
     'django_rest_passwordreset',
 
     'events',
