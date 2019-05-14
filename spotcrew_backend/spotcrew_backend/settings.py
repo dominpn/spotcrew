@@ -14,10 +14,17 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.gis',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    'rest_framework',
+    'rest_framework_gis',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
     'corsheaders',
     'rest_framework',
     'django_rest_passwordreset',
@@ -61,10 +68,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'spotcrew_backend.wsgi.application'
 
-'''
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
@@ -79,6 +85,7 @@ DATABASES = {
         'NAME': 'spotcrew',
     }
 }
+'''
 
 AUTH_USER_MODEL = "users.User"
 
@@ -128,7 +135,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
-    # TODO pagination next and previous cursor in header?
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
 
