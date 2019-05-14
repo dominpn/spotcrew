@@ -1,0 +1,9 @@
+Django==2.1.7
+django-cors-headers==2.5.3
+djangorestframework==3.9.2
+djangorestframework-simplejwt==4.1.0
+djangorestframework-stubs==0.3.0
+psycopg2-binary==2.7.7
+PyJWT==1.7.1
+python-decouple==3.1
+pytz==2018.9
