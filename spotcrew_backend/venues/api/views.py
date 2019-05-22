@@ -1,5 +1,5 @@
 from django.contrib.gis.geos import Point
-from rest_framework import generics, mixins
+from rest_framework import generics, mixins, permissions
 
 from venues.models import Venue
 from venues.api.serializers import VenueSerializer
@@ -8,7 +8,7 @@ from venues.api.serializers import VenueSerializer
 class VenueListView(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field = 'pk'
     serializer_class = VenueSerializer
-    query_parameters = ()
+    query_parameters = (Venue.name, )
 
     def get_queryset(self):
         result = Venue.objects.all()
@@ -41,7 +41,7 @@ class VenueListView(mixins.CreateModelMixin, generics.ListAPIView):
 class VenueDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
     serializer_class = VenueSerializer
-    # TODO permission_classes = [IsOwnerOrReadOnly]
+    # TODO permission_classes = [permissions.IsAdminUser]
 
     def get_queryset(self):
         return Venue.objects.all()
