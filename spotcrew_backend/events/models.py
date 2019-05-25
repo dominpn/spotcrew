@@ -24,3 +24,9 @@ class Event(models.Model):
     @property
     def owner(self):
         return self.host_id
+
+
+class EventAttendance(models.Model):
+    id = models.AutoField(primary_key=True)
+    event_id = models.OneToOneField(Event, models.DO_NOTHING, db_column='event_id')
+    user_id = models.OneToOneField(User, models.DO_NOTHING, db_column='user_id')
