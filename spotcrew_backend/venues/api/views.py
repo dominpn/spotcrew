@@ -1,14 +1,17 @@
 from django.contrib.gis.geos import Point
+from django_filters import rest_framework as filters
 from rest_framework import generics, mixins, permissions
 
 from venues.models import Venue
 from venues.api.serializers import VenueSerializer
+from venues.api.filters import VenueFilter
 
 
 class VenueListView(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field = 'pk'
     serializer_class = VenueSerializer
-    query_parameters = (Venue.name, )
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = VenueFilter
 
     def get_queryset(self):
         result = Venue.objects.all()
@@ -23,9 +26,6 @@ class VenueListView(mixins.CreateModelMixin, generics.ListAPIView):
             radius = float(self.request.GET['radius']) / 111.325
             result = result.filter(location__distance_lte=(location, radius))
 
-        for filter_field in self.query_parameters:
-            if self.request.GET.get(filter_field):
-                result = result.filter(**{filter_field: self.request.GET[filter_field]})
         return result
 
     def perform_create(self, serializer):
