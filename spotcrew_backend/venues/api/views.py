@@ -2,6 +2,9 @@ from django.contrib.gis.geos import Point
 from django_filters import rest_framework as filters
 from rest_framework import generics, mixins, permissions
 
+from events.api.serializers import EventSerializer
+from events.api.filters import EventFilter
+from events.models import Event
 from venues.models import Venue
 from venues.api.serializers import VenueSerializer
 from venues.api.filters import VenueFilter
@@ -45,6 +48,19 @@ class VenueDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Venue.objects.all()
+
+    def get_serializer_context(self, *args, **kwargs):
+        return {"request": self.request}
+
+
+class VenueEventsListView(generics.ListAPIView):
+    lookup_field = 'pk'
+    serializer_class = EventSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = EventFilter
+
+    def get_queryset(self):
+        return Event.objects.filter(venue_id__venue_id=self.kwargs.get(self.lookup_field))
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
