@@ -28,5 +28,9 @@ class Event(models.Model):
 
 class EventAttendance(models.Model):
     id = models.AutoField(primary_key=True)
-    event_id = models.OneToOneField(Event, models.DO_NOTHING, db_column='event_id')
-    user_id = models.OneToOneField(User, models.DO_NOTHING, db_column='user_id')
+    event_id = models.ForeignKey(Event, models.DO_NOTHING, db_column='event_id')
+    user_id = models.ForeignKey(User, models.DO_NOTHING, db_column='user_id')
+
+    class Meta:
+        unique_together = [['event_id', 'user_id']]
+
