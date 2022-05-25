@@ -24,7 +24,7 @@ mysqlclient==1.4.2.post1
 numpy==1.16.3
 psycopg2-binary==2.7.7
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-decouple==3.1
 pytz==2018.9
 requests==2.21.0
